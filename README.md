@@ -45,7 +45,7 @@ standard library.
 Start the interactive exporter:
 
 ```powershell
-python .\query_people.py
+python .\query_PIs_emails.py
 ```
 
 The script will ask you to:
@@ -76,7 +76,7 @@ password:
 
 ```powershell
 $env:NOMAD_TOKEN = "your-access-token"
-python .\query_people.py
+python .\query_PIs_emails.py
 ```
 
 ### Command-line options
@@ -84,25 +84,25 @@ python .\query_people.py
 Pass a username on the command line while keeping the password prompt:
 
 ```powershell
-python .\query_people.py --username "your-username"
+python .\query_PIs_emails.py --username "your-username"
 ```
 
 Choose a custom output path:
 
 ```powershell
-python .\query_people.py --output .\data\my_export.csv
+python .\query_PIs_emails.py --output .\data\my_export.csv
 ```
 
 Run a saved API query instead of using the Area and task menus:
 
 ```powershell
-python .\query_people.py --query .\query.json
+python .\query_PIs_emails.py --query .\query.json
 ```
 
 View every available option:
 
 ```powershell
-python .\query_people.py --help
+python .\query_PIs_emails.py --help
 ```
 
 ## Testing
@@ -119,9 +119,9 @@ The tests do not contact the live Oasis or require login credentials.
 
 ```text
 .
-|-- query_people.py       Interactive query and CSV export tool
+|-- query_PIs_emails.py   Interactive query and CSV export tool
 |-- query.json            Example saved Oasis query
-|-- test_query_people.py  Automated tests
+|-- test_query_PIs_emails.py  Automated tests
 |-- data/                 Local generated CSV output (`.gitkeep` preserves the folder)
 |-- .gitignore            Excludes CSV files, credentials, and Python cache
 `-- README.md

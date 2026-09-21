@@ -3,7 +3,7 @@ from datetime import date
 from pathlib import Path
 from unittest.mock import patch
 
-import query_people
+import query_PIs_emails
 
 
 class ExtractPeopleTests(unittest.TestCase):
@@ -21,7 +21,7 @@ class ExtractPeopleTests(unittest.TestCase):
             }
         }
         self.assertEqual(
-            list(query_people.extract_people(archive)),
+            list(query_PIs_emails.extract_people(archive)),
             [
                 ("Ada Lovelace", "ada@example.org"),
                 ("Grace Hopper", "grace@example.org"),
@@ -30,7 +30,7 @@ class ExtractPeopleTests(unittest.TestCase):
 
 
 class PaginationTests(unittest.TestCase):
-    @patch("query_people.request_json")
+    @patch("query_PIs_emails.request_json")
     def test_paginates_and_deduplicates(self, request_json):
         request_json.side_effect = [
             {
@@ -42,7 +42,7 @@ class PaginationTests(unittest.TestCase):
                 "pagination": {},
             },
         ]
-        people, count = query_people.query_people(
+        people, count = query_PIs_emails.query_people(
             "https://example.test/api/v1", {"owner": "visible", "query": {}}, None, 10
         )
         self.assertEqual(people, [("A", "a@x")])
@@ -54,25 +54,25 @@ class PaginationTests(unittest.TestCase):
 
 class SelectionQueryTests(unittest.TestCase):
     def test_area_and_task_query(self):
-        payload = query_people.build_query(
+        payload = query_PIs_emails.build_query(
             "B", ("B1", "Hyperspectral Imaging")
         )
         filters = payload["query"]["and"][0]
-        self.assertEqual(filters[query_people.AREA_FIELD], ["Area B - Experiment"])
+        self.assertEqual(filters[query_PIs_emails.AREA_FIELD], ["Area B - Experiment"])
         self.assertEqual(
-            filters[query_people.TASK_FIELD],
+            filters[query_PIs_emails.TASK_FIELD],
             ["Task B1 – Hyperspectral Imaging"],
         )
 
     def test_all_areas_has_only_person_definition_filter(self):
-        payload = query_people.build_query("ALL", None)
+        payload = query_PIs_emails.build_query("ALL", None)
         self.assertEqual(
             payload["query"]["and"],
-            [{"section_defs.definition_qualified_name:all": [query_people.PERSON_DEFINITION]}],
+            [{"section_defs.definition_qualified_name:all": [query_PIs_emails.PERSON_DEFINITION]}],
         )
 
     def test_generated_filename(self):
-        output = query_people.default_output_path(
+        output = query_PIs_emails.default_output_path(
             "B", ("B1", "Hyperspectral Imaging")
         )
         self.assertEqual(
