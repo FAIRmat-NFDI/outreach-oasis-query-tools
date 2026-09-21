@@ -3,6 +3,9 @@
   "query": {
     "and": [
       {
+        "data.member_type#fairmat_members.schema_packages.schema_package.Person": [
+          "PI"
+        ],
         "data.fairmat_roles.area#fairmat_members.schema_packages.schema_package.Person:any": [
           "Area B - Experiment"
         ],

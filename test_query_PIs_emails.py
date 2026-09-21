@@ -58,17 +58,44 @@ class SelectionQueryTests(unittest.TestCase):
             "B", ("B1", "Hyperspectral Imaging")
         )
         filters = payload["query"]["and"][0]
+        self.assertEqual(filters[query_PIs_emails.MEMBER_TYPE_FIELD], ["PI"])
         self.assertEqual(filters[query_PIs_emails.AREA_FIELD], ["Area B - Experiment"])
         self.assertEqual(
             filters[query_PIs_emails.TASK_FIELD],
             ["Task B1 – Hyperspectral Imaging"],
         )
 
-    def test_all_areas_has_only_person_definition_filter(self):
+    def test_all_areas_still_filters_to_pis(self):
         payload = query_PIs_emails.build_query("ALL", None)
         self.assertEqual(
             payload["query"]["and"],
-            [{"section_defs.definition_qualified_name:all": [query_PIs_emails.PERSON_DEFINITION]}],
+            [
+                {query_PIs_emails.MEMBER_TYPE_FIELD: ["PI"]},
+                {"section_defs.definition_qualified_name:all": [query_PIs_emails.PERSON_DEFINITION]},
+            ],
+        )
+
+    def test_saved_query_is_always_constrained_to_pis(self):
+        payload = query_PIs_emails.enforce_pi_filter(
+            {"owner": "visible", "query": {"custom.field": ["value"]}}
+        )
+
+    def test_pi_filter_is_not_duplicated(self):
+        payload = {
+            "query": {
+                "and": [
+                    {query_PIs_emails.MEMBER_TYPE_FIELD: ["PI"]},
+                    {"custom.field": ["value"]},
+                ]
+            }
+        }
+        self.assertEqual(query_PIs_emails.enforce_pi_filter(payload), payload)
+        self.assertEqual(
+            payload["query"]["and"],
+            [
+                {query_PIs_emails.MEMBER_TYPE_FIELD: ["PI"]},
+                {"custom.field": ["value"]},
+            ],
         )
 
     def test_generated_filename(self):

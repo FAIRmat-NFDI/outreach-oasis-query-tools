@@ -22,6 +22,7 @@ DEFAULT_API_URL = (
     "https://fairmat-oasis.physik.hu-berlin.de/nomad-oasis/api/v1"
 )
 PERSON_DEFINITION = "fairmat_members.schema_packages.schema_package.Person"
+MEMBER_TYPE_FIELD = f"data.member_type#{PERSON_DEFINITION}"
 AREA_FIELD = (
     "data.fairmat_roles.area#"
     "fairmat_members.schema_packages.schema_package.Person:any"
@@ -177,7 +178,36 @@ def load_query(path: Path) -> dict[str, Any]:
         raise RuntimeError(f"Could not load query file {path}: {error}") from error
     if not isinstance(payload, dict) or "query" not in payload:
         raise RuntimeError(f"{path} must contain a JSON object with a 'query' key")
-    return payload
+    return enforce_pi_filter(payload)
+
+
+def enforce_pi_filter(payload: dict[str, Any]) -> dict[str, Any]:
+    """Return a query payload constrained to FAIRmat Person entries of type PI."""
+    constrained = dict(payload)
+    existing_query = constrained.get("query", {})
+    pi_filter = {MEMBER_TYPE_FIELD: ["PI"]}
+
+    if (
+        isinstance(existing_query, dict)
+        and existing_query.get(MEMBER_TYPE_FIELD) == ["PI"]
+    ):
+        return constrained
+    if not existing_query:
+        constrained["query"] = pi_filter
+    elif isinstance(existing_query, dict) and set(existing_query) == {"and"}:
+        conditions = existing_query.get("and")
+        if not isinstance(conditions, list):
+            raise RuntimeError("Saved query's 'and' value must be a list")
+        if any(
+            isinstance(condition, dict)
+            and condition.get(MEMBER_TYPE_FIELD) == ["PI"]
+            for condition in conditions
+        ):
+            return constrained
+        constrained["query"] = {"and": [pi_filter, *conditions]}
+    else:
+        constrained["query"] = {"and": [pi_filter, existing_query]}
+    return constrained
 
 
 def choose(prompt: str, choices: list[tuple[str, str]]) -> str:
@@ -212,7 +242,7 @@ def select_area_and_task() -> tuple[str, tuple[str, str] | None]:
 
 
 def build_query(area: str, task: tuple[str, str] | None) -> dict[str, Any]:
-    filters: dict[str, Any] = {}
+    filters: dict[str, Any] = {MEMBER_TYPE_FIELD: ["PI"]}
     if area != "ALL":
         filters[AREA_FIELD] = [AREAS[area]]
     if task:

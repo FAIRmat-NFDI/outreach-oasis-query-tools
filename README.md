@@ -3,14 +3,17 @@
 A small command-line tool for exporting names and email addresses from the
 [FAIRmat Outreach NOMAD Oasis](https://fairmat-oasis.physik.hu-berlin.de).
 
-The tool presents an interactive Area and task menu, queries the matching
-Person entries, removes duplicates, and saves the result as a CSV file.
+The tool presents an interactive Area and task menu, queries matching Principal
+Investigator (PI) entries, removes duplicates, and saves the result as a CSV
+file.
 
 ## Features
 
 - Interactive selection of FAIRmat Areas A–H
 - Task choices limited to the selected Area
 - **All areas** and **All tasks** options
+- PI-only results for every selection, including **All areas**, **All tasks**,
+  and saved queries
 - Excludes the legacy **FAIRmat1 Area E – Use Cases** category
 - Automatic pagination through all matching Oasis entries
 - Deduplicated `name,email` output
