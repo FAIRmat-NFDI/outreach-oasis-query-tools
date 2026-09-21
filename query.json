@@ -1,0 +1,20 @@
+{
+  "owner": "visible",
+  "query": {
+    "and": [
+      {
+        "data.fairmat_roles.area#fairmat_members.schema_packages.schema_package.Person:any": [
+          "Area B - Experiment"
+        ],
+        "data.fairmat_roles.task#fairmat_members.schema_packages.schema_package.Person:any": [
+          "Task B1 – Hyperspectral Imaging"
+        ]
+      },
+      {
+        "section_defs.definition_qualified_name:all": [
+          "fairmat_members.schema_packages.schema_package.Person"
+        ]
+      }
+    ]
+  }
+}

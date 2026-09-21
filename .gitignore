@@ -1,0 +1,7 @@
+# Generated query exports (keep data/.gitkeep tracked)
+*.csv
+
+# Local configuration and Python build artifacts
+.env
+__pycache__/
+*.py[cod]
