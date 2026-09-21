@@ -105,7 +105,7 @@ def request_json(
         detail = error.read().decode("utf-8", errors="replace")
         if error.code == 401:
             detail += (
-                " Set NOMAD_TOKEN, or pass --username and enter your Oasis password."
+                " Set NOMAD_TOKEN, or pass --username and enter your NOMAD password."
             )
         raise RuntimeError(f"Oasis returned HTTP {error.code}: {detail}") from error
     except urllib.error.URLError as error:
@@ -127,7 +127,7 @@ def get_access_token(api_url: str, username: str, password: str) -> str:
 def prompt_username() -> str:
     while True:
         try:
-            username = input("Oasis username: ").strip()
+            username = input("Your NOMAD username: ").strip()
         except EOFError as error:
             raise RuntimeError("Username input requires an interactive terminal") from error
         if username:
@@ -330,7 +330,7 @@ def main() -> int:
         token = args.token
         if not token:
             username = args.username or prompt_username()
-            password = os.getenv(args.password_env) or getpass.getpass("Oasis password: ")
+            password = os.getenv(args.password_env) or getpass.getpass("Your NOMAD password: ")
             token = get_access_token(api_url, username, password)
 
         rows, entry_count = query_people(

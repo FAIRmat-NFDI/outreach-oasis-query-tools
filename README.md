@@ -33,8 +33,8 @@ python --version
 Clone or download this repository, then open a terminal in its directory:
 
 ```powershell
-git clone <repository-url>
-cd Quering_Outreach_Oasis
+git clone https://github.com/FAIRmat-NFDI/outreach-oasis-query-tools.git
+cd outreach-oasis-query-tools
 ```
 
 No package installation is necessary because the script uses only Python's
@@ -52,8 +52,8 @@ The script will ask you to:
 
 1. Select an Area, or select **All areas**.
 2. Select a task belonging to that Area, or select **All tasks**.
-3. Enter your Oasis username.
-4. Enter your Oasis password.
+3. At `Your NOMAD username:`, enter your NOMAD username.
+4. At `Your NOMAD password:`, enter your NOMAD password.
 
 Password input is hidden while typing. A successful query creates a file such
 as:
@@ -122,7 +122,7 @@ The tests do not contact the live Oasis or require login credentials.
 |-- query_people.py       Interactive query and CSV export tool
 |-- query.json            Example saved Oasis query
 |-- test_query_people.py  Automated tests
-|-- data/                 Generated CSV output
+|-- data/                 Local generated CSV output (`.gitkeep` preserves the folder)
 |-- .gitignore            Excludes CSV files, credentials, and Python cache
 `-- README.md
 ```
@@ -132,7 +132,9 @@ The tests do not contact the live Oasis or require login credentials.
 - Usernames and passwords are not saved by the script.
 - Passwords should not be placed directly in commands because shell history may
   retain them.
-- `.env` files and generated CSV files are excluded from Git by default.
+- `.env` files and all generated CSV files are excluded from Git by default.
+- `data/.gitkeep` keeps the output directory in the repository without committing
+  its generated CSV files.
 - Exported names and email addresses may be personal data. Share and retain the
   CSV files only as permitted by your organization and applicable data-protection
   requirements.
