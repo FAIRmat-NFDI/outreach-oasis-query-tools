@@ -1,5 +1,7 @@
 # Generated query exports (keep data/.gitkeep tracked)
 *.csv
+data/email_lists_*/
+proposal_rosters.json
 
 # Local configuration and Python build artifacts
 .env
