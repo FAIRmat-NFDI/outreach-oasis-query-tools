@@ -2,6 +2,8 @@
 *.csv
 data/email_lists_*/
 proposal_rosters.json
+# Local query exports and reports (may contain personal data)
+data/
 
 # Local configuration and Python build artifacts
 .env
