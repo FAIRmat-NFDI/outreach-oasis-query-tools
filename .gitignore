@@ -1,3 +1,7 @@
+# Generated query exports (keep data/.gitkeep tracked)
+*.csv
+data/email_lists_*/
+proposal_rosters.json
 # Local query exports and reports (may contain personal data)
 data/
 

@@ -1,0 +1,250 @@
+{
+  "source": "Synthetic example roster; replace locally with authorized FAIRmat data",
+  "areas": {
+    "A": {
+      "title": "Synthesis",
+      "page": 1,
+      "leaders": [
+        "Example Area A Leader"
+      ]
+    },
+    "B": {
+      "title": "Experiment",
+      "page": 1,
+      "leaders": [
+        "Example Area B Leader"
+      ]
+    },
+    "C": {
+      "title": "Computation",
+      "page": 1,
+      "leaders": [
+        "Example Area C Leader"
+      ]
+    },
+    "D": {
+      "title": "Data Modeling and Interoperability",
+      "page": 1,
+      "leaders": [
+        "Example Area D Leader"
+      ]
+    },
+    "E": {
+      "title": "Digital Infrastructure",
+      "page": 1,
+      "leaders": [
+        "Example Area E Leader"
+      ]
+    },
+    "F": {
+      "title": "Enabling Data-driven Science",
+      "page": 1,
+      "leaders": [
+        "Example Area F Leader"
+      ]
+    },
+    "G": {
+      "title": "Outreach",
+      "page": 1,
+      "leaders": [
+        "Example Area G Leader"
+      ]
+    },
+    "H": {
+      "title": "Management",
+      "page": 1,
+      "leaders": [
+        "Example Area H Leader"
+      ]
+    }
+  },
+  "tasks": {
+    "A1": {
+      "title": "Synthesis Methods",
+      "page": 1,
+      "leader": "Example A1 Leader",
+      "participants": [
+        "Example A1 Participant"
+      ]
+    },
+    "A2": {
+      "title": "Processing",
+      "page": 1,
+      "leader": "Example A2 Leader",
+      "participants": [
+        "Example A2 Participant"
+      ]
+    },
+    "A3": {
+      "title": "Functional Materials",
+      "page": 1,
+      "leader": "Example A3 Leader",
+      "participants": [
+        "Example A3 Participant"
+      ]
+    },
+    "B1": {
+      "title": "Hyperspectral Imaging",
+      "page": 1,
+      "leader": "Example B1 Leader",
+      "participants": [
+        "Example B1 Participant"
+      ]
+    },
+    "B2": {
+      "title": "Basic Characterization",
+      "page": 1,
+      "leader": "Example B2 Leader",
+      "participants": [
+        "Example B2 Participant"
+      ]
+    },
+    "B3": {
+      "title": "Time-resolved Experiments",
+      "page": 1,
+      "leader": "Example B3 Leader",
+      "participants": [
+        "Example B3 Participant"
+      ]
+    },
+    "B4": {
+      "title": "Multi-technique Experiments",
+      "page": 1,
+      "leader": "Example B4 Leader",
+      "participants": [
+        "Example B4 Participant"
+      ]
+    },
+    "C1": {
+      "title": "Ground-state and Electronic Structure",
+      "page": 1,
+      "leader": "Example C1 Leader",
+      "participants": [
+        "Example C1 Participant"
+      ]
+    },
+    "C2": {
+      "title": "Multi-Excitations and Dynamics",
+      "page": 1,
+      "leader": "Example C2 Leader",
+      "participants": [
+        "Example C2 Participant"
+      ]
+    },
+    "C3": {
+      "title": "Multiscale Modeling",
+      "page": 1,
+      "leader": "Example C3 Leader",
+      "participants": [
+        "Example C3 Participant"
+      ]
+    },
+    "D1": {
+      "title": "Data Models and Standards",
+      "page": 1,
+      "leader": "Example D1 Leader",
+      "participants": [
+        "Example D1 Participant"
+      ]
+    },
+    "D2": {
+      "title": "Data Quality and Curation",
+      "page": 1,
+      "leader": "Example D2 Leader",
+      "participants": [
+        "Example D2 Participant"
+      ]
+    },
+    "D3": {
+      "title": "Workflows",
+      "page": 1,
+      "leader": "Example D3 Leader",
+      "participants": [
+        "Example D3 Participant"
+      ]
+    },
+    "E1": {
+      "title": "Infrastructure Operation and Maintenance",
+      "page": 1,
+      "leader": "Example E1 Leader",
+      "participants": [
+        "Example E1 Participant"
+      ]
+    },
+    "E2": {
+      "title": "Data Federation and Integration",
+      "page": 1,
+      "leader": "Example E2 Leader",
+      "participants": [
+        "Example E2 Participant"
+      ]
+    },
+    "E3": {
+      "title": "Experiment Control and Automation",
+      "page": 1,
+      "leader": "Example E3 Leader",
+      "participants": [
+        "Example E3 Participant"
+      ]
+    },
+    "E4": {
+      "title": "AI-ready Infrastructure",
+      "page": 1,
+      "leader": "Example E4 Leader",
+      "participants": [
+        "Example E4 Participant"
+      ]
+    },
+    "F1": {
+      "title": "Data Exploration and Integration",
+      "page": 1,
+      "leader": "Example F1 Leader",
+      "participants": [
+        "Example F1 Participant"
+      ]
+    },
+    "F2": {
+      "title": "ML for Characterization and Laboratory Analysis",
+      "page": 1,
+      "leader": "Example F2 Leader",
+      "participants": [
+        "Example F2 Participant"
+      ]
+    },
+    "F3": {
+      "title": "Benchmarking and Community Challenges",
+      "page": 1,
+      "leader": "Example F3 Leader",
+      "participants": [
+        "Example F3 Participant"
+      ]
+    },
+    "G1": {
+      "title": "Community Engagement",
+      "page": 1,
+      "leader": "Example G1 Leader",
+      "participants": [
+        "Example G1 Participant"
+      ]
+    },
+    "G2": {
+      "title": "Training",
+      "page": 1,
+      "leader": "Example G2 Leader",
+      "participants": [
+        "Example G2 Participant"
+      ]
+    },
+    "G3": {
+      "title": "Interconnectivity",
+      "page": 1,
+      "leader": "Example G3 Leader",
+      "participants": [
+        "Example G3 Participant"
+      ]
+    }
+  },
+  "aliases": {
+    "E. Person": "Example Person"
+  }
+}
